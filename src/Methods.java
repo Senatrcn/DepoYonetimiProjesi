@@ -49,7 +49,20 @@ public class Methods {
 
     public static void urunTanimla(){
 
-        System.out.println("burası sena dan gelecek");
+        System.out.println("Ürün ismini girin");
+        String urunIsmi=scan.nextLine().toUpperCase();
+        System.out.println("Üretici bilgisini girin");
+        String uretici=scan.nextLine().toUpperCase();
+        System.out.println("Birim bilgisini girin");
+        String birim=scan.nextLine().toUpperCase();
+        System.out.println("Birim bilgisini girin");
+        int urunId=scan.nextInt();
+        scan.nextLine();
+        Urun urun = new Urun(urunId,urunIsmi,uretici,birim);
+
+        urunListesi.put(urun.getId(),urun);
+
+        System.out.println("Ürün kaydı tamamlandı");
 
     }
     public static void urunListele(){
