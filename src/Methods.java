@@ -154,6 +154,7 @@ public class Methods {
         } catch (Exception e) {
             scan.nextLine();
             System.out.println("Hatalı veri girdiniz");
+            System.out.println();
         }
 
     }
