@@ -65,11 +65,17 @@ public class Methods {
         System.out.println("Ürün kaydı tamamlandı");
 
     }
+
+
     public static void urunListele(){
-
-        System.out.println("burası erkam beyin branchinden gelecek");
-
-
+            System.out.printf("%-7s %-14s %-25s %-15s %-14s %-5s\n", "Id", " İsim", " Üretici", " Miktar","Birim","Raf");
+            System.out.println("-------------------------------------------------------------------------------------");
+            Collection<Urun> valueSet = urunListesi.values();
+            for (Urun u:valueSet){
+                System.out.printf("%-8d %-14s %-25s %-14s %-14s %-5d",u.getId(),u.getUrunIsmi(),u.getUretici(),u.getMiktar(),u.getBirim(),u.getRaf());
+                System.out.println();
+            }
+            System.out.println();
     }
     public static void urunGirisi(){
 
@@ -124,9 +130,9 @@ public class Methods {
 
     }
     public static void urunRafaKoy(){
-
-        System.out.println("burası erkam beyin branchinden gelecek");
-
+        urunListele();
+        System.out.println("Rafa yerlestirmek istediginiz ürün id bilgisini girin");
+        int urunId=0;
     }
     public static void urunCikis(){
 
