@@ -49,7 +49,20 @@ public class Methods {
 
     public static void urunTanimla(){
 
-        System.out.println("burası sena dan gelecek");
+        System.out.println("Ürün ismini girin");
+        String urunIsmi=scan.nextLine().toUpperCase();
+        System.out.println("Üretici bilgisini girin");
+        String uretici=scan.nextLine().toUpperCase();
+        System.out.println("Birim bilgisini girin");
+        String birim=scan.nextLine().toUpperCase();
+        System.out.println("Birim bilgisini girin");
+        int urunId=scan.nextInt();
+        scan.nextLine();
+        Urun urun = new Urun(urunId,urunIsmi,uretici,birim);
+
+        urunListesi.put(urun.getId(),urun);
+
+        System.out.println("Ürün kaydı tamamlandı");
 
     }
 
@@ -66,7 +79,54 @@ public class Methods {
     }
     public static void urunGirisi(){
 
-        System.out.println("burası furkan beyin branchinden gelecek");
+        urunListele();
+        System.out.println("Id girin");
+        int id= 0;
+        try {
+            id=scan.nextInt();
+            scan.nextLine();
+            for (Urun urun: urunListesi.values()){
+                if (urun.getId()==id){
+                    System.out.println("Ürün ismini degistirme : 1\n"
+                            +"Ürün üretici bilgisini degistirme : 2\n"
+                            +"Ürün birim bilgisini degistirme : 3\n"
+                            +"Ürün adetini degistirme : 4\n");
+                    System.out.println("Hangi islemi yapmak istersiniz?");
+                    String islem = scan.nextLine();
+                    switch (islem){
+                        case "1":
+                            System.out.println("Yeni ürün ismini girin");
+                            urun.setUrunIsmi(scan.nextLine().toUpperCase());
+                            break;
+                        case "2":
+                            System.out.println("Yeni üretici bilgisini girin");
+                            urun.setUretici(scan.nextLine().toUpperCase());
+                            break;
+                        case "3":
+                            System.out.println("Yeni birim bilgisini girin");
+                            urun.setBirim(scan.nextLine().toUpperCase());
+                            break;
+                        case "4":
+                            System.out.println("Yeni adet bilgisini girin");
+                            int adet = 0;
+                            try {
+                                adet = scan.nextInt();
+                                scan.nextLine();
+                            } catch (Exception e) {
+                                System.out.println("Hatalı veri girdiniz");
+                            }
+                            urun.setMiktar(adet);
+                            break;
+                        default:
+                            System.out.println("Hatalı veri girdiniz");
+                            break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            scan.nextLine();
+            System.out.println("Hatalı giriş yaptınız");
+        }
 
     }
     public static void urunRafaKoy(){
@@ -76,7 +136,25 @@ public class Methods {
     }
     public static void urunCikis(){
 
-        System.out.println("burası furkan beyin branchinden gelecek");
+        urunListele();
+        System.out.println("Cıkısını yapmak istediginiz ürün id bilgisini girin");
+        int urunId=0;
+        try {
+            urunId = scan.nextInt();
+            scan.nextLine();
+            System.out.println("Kaç adet cıkıs yapmak istersiniz");
+            int miktar=0;
+            try {
+                miktar = scan.nextInt();
+                scan.nextLine();
+            } catch (Exception e) {
+                scan.nextLine();
+                System.out.println("Hatalı veri girdiniz");
+            }
+        } catch (Exception e) {
+            scan.nextLine();
+            System.out.println("Hatalı veri girdiniz");
+        }
 
     }
     private static void bitir() {
